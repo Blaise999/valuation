@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "lucide-react";
-import { Logo } from "./logo";
+import { Logo } from "./Logo";
 import { navLinks } from "@/lib/site-data";
 
 export function Header() {

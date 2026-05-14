@@ -45,7 +45,7 @@ export function LogoMark({
         strokeLinejoin="round"
       />
 
-      {/* Building 1 — left, shortest (filled with grey, navy outline) */}
+      {/* Building 1 — left, shortest */}
       <path
         d="M58 130 L58 96 L78 76 L78 130 Z"
         fill={fill}
@@ -84,7 +84,7 @@ export function LogoMark({
 }
 
 /**
- * Full lockup with wordmark — for header / footer / emails
+ * Full lockup with wordmark — for header / footer / emails.
  */
 export function LogoLockup({
   className,
@@ -102,19 +102,45 @@ export function LogoLockup({
   return (
     <div className={cn('flex items-center gap-3.5', className)}>
       <LogoMark size={56} variant={variant === 'light' ? 'white' : 'navy'} />
+
       <div className="flex flex-col leading-tight">
         <span className={cn('font-display text-[19px] font-bold tracking-tight', text)}>
           IDOKO C IDOKO
         </span>
+
         <span className={cn('text-[10.5px] font-bold tracking-[0.28em]', accent)}>
           CONSULTING
         </span>
+
         {showTagline && (
           <span className={cn('mt-1 text-[10px] tracking-wide', taglineColor)}>
-            Estate Surveyors & Valuers
+            Estate Surveyors &amp; Valuers
           </span>
         )}
       </div>
     </div>
+  );
+}
+
+/**
+ * Compatibility export.
+ * Some components import { Logo } from './Logo',
+ * so this wraps LogoLockup and prevents TS2305 export errors.
+ */
+export function Logo({
+  className,
+  variant = 'dark',
+  showTagline = false,
+}: {
+  className?: string;
+  variant?: 'dark' | 'light';
+  showTagline?: boolean;
+}) {
+  return (
+    <LogoLockup
+      className={className}
+      variant={variant}
+      showTagline={showTagline}
+    />
   );
 }
