@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Fraunces } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
@@ -34,6 +34,10 @@ export const metadata: Metadata = {
     description: 'Estate Surveyors & Valuers · Property Managers · Facility Managers · Agency',
     type: 'website',
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#1e3568',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

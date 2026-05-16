@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 /**
@@ -90,14 +91,17 @@ export function LogoLockup({
   className,
   variant = 'dark',
   showTagline = false,
+  showNiesv = false,
 }: {
   className?: string;
   variant?: 'dark' | 'light';
   showTagline?: boolean;
+  showNiesv?: boolean;
 }) {
   const text = variant === 'light' ? 'text-white' : 'text-ink-900';
   const accent = variant === 'light' ? 'text-brand-200' : 'text-accent';
   const taglineColor = variant === 'light' ? 'text-brand-100/70' : 'text-ink-500';
+  const divider = variant === 'light' ? 'bg-white/20' : 'bg-ink-200';
 
   return (
     <div className={cn('flex items-center gap-3.5', className)}>
@@ -118,6 +122,27 @@ export function LogoLockup({
           </span>
         )}
       </div>
+
+      {showNiesv && (
+        <>
+          <span className={cn('h-9 w-px shrink-0', divider)} aria-hidden="true" />
+          <span
+            className={cn(
+              'relative block h-11 w-12 shrink-0',
+              variant === 'light' && 'rounded-md bg-white p-1'
+            )}
+          >
+            <Image
+              src="/niesv-logo.png"
+              alt="Member, Nigerian Institution of Estate Surveyors and Valuers (NIESV)"
+              fill
+              sizes="48px"
+              className="object-contain"
+              priority
+            />
+          </span>
+        </>
+      )}
     </div>
   );
 }

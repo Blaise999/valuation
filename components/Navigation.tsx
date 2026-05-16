@@ -59,7 +59,7 @@ export default function Navigation() {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:py-5">
           <Link href="/" className="focus-ring rounded-md">
-            <LogoLockup />
+            <LogoLockup showNiesv />
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">
@@ -130,7 +130,7 @@ export default function Navigation() {
                 className="fixed inset-y-0 right-0 z-[60] flex w-[86%] max-w-sm flex-col bg-white p-5 lg:hidden"
               >
                 <div className="flex items-center justify-between">
-                  <LogoLockup />
+                  <LogoLockup showNiesv />
                   <button
                     onClick={() => setOpen(false)}
                     className="grid h-10 w-10 place-items-center rounded-md text-ink-700"
