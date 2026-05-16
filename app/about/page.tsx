@@ -38,7 +38,7 @@ export default function AboutPage() {
                 </RevealOnScroll>
                 <RevealOnScroll delay={0.1}>
                   <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight text-ink-900 sm:text-6xl lg:text-7xl">
-                    Property valuation, <br />
+                   Asset Valuation, <br />
                     <span className="gradient-text">done with care.</span>
                   </h1>
                 </RevealOnScroll>
