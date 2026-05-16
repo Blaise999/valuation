@@ -129,29 +129,37 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-6">
             <RevealOnScroll>
               <div className="grid items-center gap-10 lg:grid-cols-12">
-                <div className="lg:col-span-3">
-                  {/* NIESV badge. To replace with real logo: drop /public/niesv-logo.png
-                      then swap this div for: <Image src="/niesv-logo.png" alt="NIESV" fill className="object-contain p-4" /> */}
-                  <div className="relative mx-auto grid aspect-square w-44 place-items-center overflow-hidden rounded-2xl bg-white p-4 shadow-md ring-1 ring-brand-100 lg:mx-0">
-                    <div className="grid h-full w-full place-items-center rounded-full bg-gradient-to-br from-brand-700 to-brand-900 text-white">
-                      <div className="text-center leading-tight">
-                        <div className="font-display text-3xl font-bold tracking-tight">NIESV</div>
-                        <div className="mt-2 text-[8px] font-semibold uppercase tracking-[0.18em] text-brand-200">Registered</div>
-                        <div className="mx-auto mt-2 h-px w-10 bg-brand-300/60" />
-                        <div className="mt-1 text-[7px] uppercase tracking-[0.12em] text-brand-200/80">Firm Member</div>
-                      </div>
+                <div className="lg:col-span-4">
+                  <div className="flex items-center justify-center gap-5 lg:justify-start">
+                    <div className="relative grid aspect-square w-32 place-items-center rounded-2xl bg-white p-4 shadow-md ring-1 ring-brand-100 sm:w-36">
+                      <Image
+                        src="/niesv-logo.png"
+                        alt="Nigerian Institution of Estate Surveyors and Valuers (NIESV)"
+                        fill
+                        sizes="144px"
+                        className="object-contain p-3"
+                      />
+                    </div>
+                    <div className="relative grid aspect-square w-32 place-items-center rounded-2xl bg-white p-4 shadow-md ring-1 ring-brand-100 sm:w-36">
+                      <Image
+                        src="/esvarbon-logo.png"
+                        alt="Estate Surveyors and Valuers Registration Board of Nigeria (ESVARBON)"
+                        fill
+                        sizes="144px"
+                        className="object-contain p-3"
+                      />
                     </div>
                   </div>
                 </div>
 
-                <div className="lg:col-span-9">
+                <div className="lg:col-span-8">
                   <span className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-700">Professional Affiliation</span>
                   <h3 className="mt-3 font-display text-2xl font-bold leading-tight text-ink-900 sm:text-3xl">
                     A registered firm with the Nigerian Institution of <br className="hidden lg:block" />
                     Estate Surveyors and Valuers (NIESV).
                   </h3>
                   <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-600">
-                    Every valuation report we issue carries the signature and stamp of a registered Estate Surveyor and Valuer — the standard banks, courts and regulators require.
+                    Every valuation report we issue carries the signature and stamp of an Estate Surveyor and Valuer registered with the Estate Surveyors and Valuers Registration Board of Nigeria (ESVARBON) — the standard banks, courts and regulators require.
                   </p>
                 </div>
               </div>

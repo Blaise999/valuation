@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { LogoLockup } from './Logo';
 import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react';
@@ -102,7 +103,33 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-xs text-brand-100/60 md:flex-row md:items-center">
+        <div className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-10 sm:flex-row">
+          <div className="flex items-center gap-4">
+            <div className="relative h-16 w-16 shrink-0 rounded-xl bg-white p-2 shadow-sm">
+              <Image
+                src="/niesv-logo.png"
+                alt="Nigerian Institution of Estate Surveyors and Valuers (NIESV)"
+                fill
+                sizes="64px"
+                className="object-contain p-1"
+              />
+            </div>
+            <div className="relative h-16 w-16 shrink-0 rounded-xl bg-white p-2 shadow-sm">
+              <Image
+                src="/esvarbon-logo.png"
+                alt="Estate Surveyors and Valuers Registration Board of Nigeria (ESVARBON)"
+                fill
+                sizes="64px"
+                className="object-contain p-1"
+              />
+            </div>
+            <p className="max-w-xs text-xs leading-relaxed text-brand-100/60">
+              Registered with the Nigerian Institution of Estate Surveyors and Valuers and the Estate Surveyors and Valuers Registration Board of Nigeria.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-xs text-brand-100/60 md:flex-row md:items-center">
           <div>
             © {new Date().getFullYear()} Idoko C Idoko Consulting. All rights reserved.
           </div>
