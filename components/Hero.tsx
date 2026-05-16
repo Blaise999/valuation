@@ -90,7 +90,7 @@ export default function Hero() {
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="block"
               >
-                Property valuation,
+                Asset Valuation,
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, x: -20 }}

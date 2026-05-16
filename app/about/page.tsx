@@ -155,7 +155,7 @@ export default function AboutPage() {
                 <div className="lg:col-span-8">
                   <span className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-700">Professional Affiliation</span>
                   <h3 className="mt-3 font-display text-2xl font-bold leading-tight text-ink-900 sm:text-3xl">
-                    A registered firm with the Nigerian Institution of <br className="hidden lg:block" />
+                    A registered member with the Nigerian Institution of <br className="hidden lg:block" />
                     Estate Surveyors and Valuers (NIESV).
                   </h3>
                   <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-600">
