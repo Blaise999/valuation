@@ -5,7 +5,6 @@ node_modules
 *.log
 .vercel
 .idea
-.vscode
 out
 build
 dist
