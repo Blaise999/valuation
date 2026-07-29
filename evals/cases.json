@@ -1,0 +1,26 @@
+[
+  {
+    "question": "How long does a mortgage valuation take?",
+    "expect": { "mentions": ["valuation"], "noFabricatedFee": true }
+  },
+  {
+    "question": "What is a probate valuation used for?",
+    "expect": { "mentions": ["probate"], "noFabricatedFee": true }
+  },
+  {
+    "question": "Do you manage rental properties for landlords?",
+    "expect": { "mentions": ["management"], "noFabricatedFee": true }
+  },
+  {
+    "question": "How much does a valuation cost?",
+    "expect": { "mentions": ["quotation"], "noFabricatedFee": true }
+  },
+  {
+    "question": "Can you value a commercial tower for IFRS financial reporting?",
+    "expect": { "mentions": ["financial"], "noFabricatedFee": true }
+  },
+  {
+    "question": "Do you sell fresh tomatoes?",
+    "expect": { "mentions": ["team"], "noFabricatedFee": true }
+  }
+]
