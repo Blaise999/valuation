@@ -8,8 +8,8 @@ import { LogoLockup } from './Logo';
 
 const NAV = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'The Firm' },
-  { href: '/services', label: 'Expertise' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
   { href: '/properties', label: 'Properties' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -29,8 +29,9 @@ export default function Navigation() {
     <>
       <div className="hidden border-b border-[#e5edf8] bg-[#f4f9ff] lg:block">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-12 py-2 text-[10px] font-semibold uppercase tracking-[.16em] text-[#5f7ea8]">
-          <span>Independent property insight <span className="mx-3 text-[#1d72cf]">/</span> Enugu, Nigeria</span>
+          <span>No 75 Chime Avenue, New Heaven, Enugu <span className="mx-3 text-[#1d72cf]">/</span> Estate Surveyors &amp; Valuers</span>
           <a href="tel:08133988976" className="inline-flex items-center gap-2 transition hover:text-[#075bc4]"><Phone size={12} /> 0813 398 8976</a>
+          <span>Idoko Chinelo Ifeyinwa — Principal Valuer</span>
         </div>
       </div>
       <header className="sticky top-0 z-40 border-b border-[#e0eaf6] bg-white/95 supports-[backdrop-filter]:bg-white/95">

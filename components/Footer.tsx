@@ -24,14 +24,9 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-brand-950 text-brand-100">
       <div className="absolute inset-0 bg-grid-dark opacity-40" />
+      <div className="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-brand-600/20 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-brand-500/15 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl border-b border-white/15 px-6 pb-10 pt-16 lg:pb-14 lg:pt-20">
-        <p className="text-[11px] font-semibold uppercase tracking-[.24em] text-[#a9d5ff]">Idoko C Idoko Consulting / Enugu, Nigeria</p>
-        <div className="mt-5 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="max-w-3xl font-display text-4xl font-medium leading-tight text-white sm:text-5xl">Make your next property decision <em className="text-[#a9d5ff]">a confident one.</em></h2>
-          <Link href="/request-valuation" className="inline-flex shrink-0 items-center justify-center gap-2 self-start border border-[#a9d5ff] px-6 py-4 text-sm font-semibold text-[#c2ddff] transition hover:bg-[#a9d5ff] hover:text-brand-950">Start a conversation <ArrowUpRight size={16} /></Link>
-        </div>
-      </div>
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-6">
