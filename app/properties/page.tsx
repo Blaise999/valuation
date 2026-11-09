@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import PropertyImageGallery from '@/components/PropertyImageGallery';
+import VideoLightbox from '@/components/VideoLightbox';
 import { createClient } from '@/lib/supabase/server';
 import { formatNaira } from '@/lib/utils';
 import {
@@ -63,6 +64,7 @@ function PropertyCard({
                 </div>
               }
             />
+            {p.video_url && <VideoLightbox url={p.video_url} title={p.title} label="Watch walkthrough" className="absolute bottom-4 left-4 z-20" />}
           </div>
 
           <div className="flex flex-col justify-between p-7 lg:col-span-5 lg:p-10">
@@ -156,6 +158,7 @@ function PropertyCard({
               </span>
             }
           />
+            {p.video_url && <VideoLightbox url={p.video_url} title={p.title} label="Watch walkthrough" className="absolute bottom-4 left-4 z-20" />}
         </div>
 
         <div className="flex flex-1 flex-col justify-between p-6">
@@ -238,6 +241,7 @@ function PropertyCard({
             </>
           }
         />
+        {p.video_url && <VideoLightbox url={p.video_url} title={p.title} label="Watch walkthrough" className="absolute bottom-4 left-4 z-20" />}
       </div>
 
       <div className="p-6">
@@ -309,70 +313,34 @@ export default async function PropertiesPage() {
       <Navigation />
 
       <main>
-        <section className="relative overflow-hidden bg-white pt-12">
-          <div className="absolute inset-0 bg-grid opacity-50" />
-          <div className="pointer-events-none absolute -left-40 -top-20 h-[480px] w-[480px] rounded-full bg-brand-200/40 blur-3xl" />
-
-          <div className="relative mx-auto max-w-7xl px-6 py-16 lg:py-20">
-            <RevealOnScroll>
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/60 px-3 py-1.5 text-xs font-medium text-brand-800 backdrop-blur-sm">
-                <Sparkles size={12} className="text-brand-700" />
-                Active Listings
+        <section className="relative overflow-hidden border-b border-[#dce9f8] bg-[#f2f8ff]">
+          <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-[35%] border-l border-[#d9e8f9] bg-grid opacity-70 lg:block" />
+          <div className="relative mx-auto max-w-7xl px-6 py-16 lg:py-24">
+            <p className="editorial-label">Our property collection / 01</p>
+            <div className="mt-7 grid gap-9 lg:grid-cols-[1.3fr_.7fr] lg:items-end lg:gap-16">
+              <div>
+                <h1 className="max-w-4xl font-display text-5xl font-medium leading-[1.05] tracking-[-.04em] text-brand-950 sm:text-6xl lg:text-7xl">Find your <em className="text-[#2478d2]">place</em> in the world.</h1>
               </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll delay={0.1}>
-              <h1 className="mt-6 max-w-4xl font-display text-5xl font-bold leading-[1.05] tracking-tight text-ink-900 sm:text-6xl lg:text-7xl">
-                Properties handled by{' '}
-                <span className="gradient-text">our agency.</span>
-              </h1>
-            </RevealOnScroll>
-
-            <RevealOnScroll delay={0.2}>
-              <p className="mt-6 max-w-2xl text-lg text-ink-600">
-                We act as agent for vendors and landlords across residential,
-                commercial and industrial property. Every listing has been
-                appraised by our valuers — so you know the asking price reflects
-                the real market.
-              </p>
-            </RevealOnScroll>
-
+              <div>
+                <p className="max-w-md text-base leading-8 text-ink-600">Discover residential and commercial opportunities through our agency. Explore the details, browse the images and watch a walkthrough when available.</p>
+                <Link href="/contact" className="mt-6 inline-flex items-center gap-2 border-b border-[#267cdb] pb-2 text-sm font-semibold text-brand-950 transition hover:text-[#1869c1]">Speak to our team <ArrowRight size={17} /></Link>
+              </div>
+            </div>
             {properties.length > 0 && (
-              <RevealOnScroll delay={0.3}>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <div className="rounded-2xl bg-white px-5 py-3 ring-1 ring-ink-100">
-                    <div className="text-xs uppercase tracking-wider text-ink-500">
-                      Total Listings
-                    </div>
-                    <div className="font-display text-2xl font-bold text-ink-900">
-                      {properties.length}
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl bg-white px-5 py-3 ring-1 ring-ink-100">
-                    <div className="text-xs uppercase tracking-wider text-ink-500">
-                      For Sale
-                    </div>
-                    <div className="font-display text-2xl font-bold text-ink-900">
-                      {forSale}
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl bg-white px-5 py-3 ring-1 ring-ink-100">
-                    <div className="text-xs uppercase tracking-wider text-ink-500">
-                      For Rent
-                    </div>
-                    <div className="font-display text-2xl font-bold text-ink-900">
-                      {forRent}
-                    </div>
-                  </div>
-                </div>
-              </RevealOnScroll>
+              <div className="mt-12 grid max-w-xl grid-cols-3 divide-x divide-[#c8dcf4] border-t border-[#c8dcf4] pt-5">
+                {[
+                  ['Available listings', properties.length],
+                  ['For sale', forSale],
+                  ['For rent', forRent],
+                ].map(([label, count]) => (
+                  <div className="px-4 first:pl-0" key={label}><p className="font-display text-3xl text-brand-950">{count}</p><p className="mt-1 text-[11px] font-semibold uppercase tracking-[.1em] text-ink-500">{label}</p></div>
+                ))}
+              </div>
             )}
           </div>
         </section>
 
-        <section className="pb-24">
+        <section className="bg-[#ffffff] pb-24 pt-10 lg:pt-14">
           <div className="mx-auto max-w-7xl px-6">
             {properties.length === 0 ? (
               <RevealOnScroll>
@@ -576,7 +544,7 @@ export default async function PropertiesPage() {
         </section>
 
         {properties.length > 0 && (
-          <section className="pb-24">
+          <section className="bg-[#ffffff] pb-24 pt-10 lg:pt-14">
             <div className="mx-auto max-w-7xl px-6">
               <div className="overflow-hidden rounded-3xl bg-ink-900 p-10 text-white lg:p-16">
                 <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-16">

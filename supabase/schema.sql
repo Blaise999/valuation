@@ -196,6 +196,7 @@ create table if not exists public.properties (
   area_sqm numeric,
   features jsonb default '[]'::jsonb,
   images jsonb default '[]'::jsonb,
+  video_url text,
   status text default 'available' check (status in ('available', 'sold', 'rented', 'pending')),
   featured boolean default false,
   created_at timestamptz not null default now(),

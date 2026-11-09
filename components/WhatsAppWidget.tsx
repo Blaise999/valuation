@@ -12,8 +12,8 @@ const PRESETS = [
   'Please send me a quotation for my property.',
 ];
 
-export default function WhatsAppWidget() {
-  const [open, setOpen] = useState(false);
+export default function WhatsAppWidget({ initialOpen = false }: { initialOpen?: boolean }) {
+  const [open, setOpen] = useState(initialOpen);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -45,7 +45,7 @@ export default function WhatsAppWidget() {
                   <div className="text-sm font-semibold">Idoko Consulting</div>
                   <div className="flex items-center gap-1.5 text-[11px] text-emerald-200">
                     <span className="block h-1.5 w-1.5 rounded-full bg-emerald-300" />
-                    Typically replies within an hour
+                    Send us a message
                   </div>
                 </div>
                 <button

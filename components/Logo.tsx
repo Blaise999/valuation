@@ -19,8 +19,8 @@ export function LogoMark({
   size?: number;
   variant?: 'navy' | 'white';
 }) {
-  const stroke = variant === 'white' ? '#ffffff' : '#1e3568';
-  const fill = variant === 'white' ? 'rgba(255,255,255,0.18)' : '#dbe2ee';
+  const stroke = variant === 'white' ? '#ffffff' : '#092e64';
+  const fill = variant === 'white' ? 'rgba(255,255,255,0.18)' : '#dceaff';
 
   return (
     <svg

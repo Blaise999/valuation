@@ -24,7 +24,7 @@ const stagger = {
 
 export function ProcessSection() {
   return (
-    <section id="process" className="bg-[#f7f3ea] px-6 py-24 lg:px-8">
+    <section id="process" className="bg-[#f3f9ff] px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <motion.div
           variants={stagger}

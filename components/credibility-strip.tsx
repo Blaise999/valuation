@@ -38,7 +38,7 @@ export function CredibilityStrip() {
             <motion.div
               variants={fadeUp}
               key={item.title}
-              className="rounded-[2rem] bg-[#f7f3ea] p-6"
+              className="rounded-[2rem] bg-[#f3f9ff] p-6"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#07111f] text-amber-300">
                 <Icon className="h-6 w-6" />

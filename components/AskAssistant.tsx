@@ -20,8 +20,8 @@ const SUGGESTIONS = [
   'Do you manage rental properties?',
 ];
 
-export default function AskAssistant() {
-  const [open, setOpen] = useState(false);
+export default function AskAssistant({ initialOpen = false }: { initialOpen?: boolean }) {
+  const [open, setOpen] = useState(initialOpen);
   const [mounted, setMounted] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');

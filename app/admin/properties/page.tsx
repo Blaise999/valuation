@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
 import { formatNaira, statusColor, statusLabel } from '@/lib/utils';
-import { Plus, MapPin } from 'lucide-react';
+import { Plus, MapPin, Video } from 'lucide-react';
 import DeletePropertyButton from '@/components/admin/DeletePropertyButton';
 
 export const metadata = { title: 'Properties' };
@@ -20,7 +20,7 @@ export default async function AdminPropertiesPage() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="font-display text-3xl font-bold text-ink-900">Properties</h1>
-          <p className="mt-1 text-sm text-ink-500">Listings shown on the public Properties page.</p>
+          <p className="mt-1 text-sm text-ink-500">Manage listing details, photos and video walkthroughs shown publicly.</p>
         </div>
         <Link href="/admin/properties/new" className="inline-flex items-center gap-1.5 rounded-full bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-800">
           <Plus size={14} /> Add Property
@@ -40,6 +40,7 @@ export default async function AdminPropertiesPage() {
                 <span className={`absolute right-3 top-3 inline-flex rounded-full px-2.5 py-1 text-[10px] font-semibold ring-1 ring-inset ${statusColor(p.status)}`}>
                   {statusLabel(p.status)}
                 </span>
+                {p.video_url && <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 bg-brand-950/90 px-3 py-1.5 text-[11px] font-semibold text-white"><Video size={13} /> Video tour added</span>}
               </div>
               <div className="p-5">
                 <div className="font-display text-lg font-bold text-brand-900">{formatNaira(p.price)}</div>

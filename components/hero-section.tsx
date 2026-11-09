@@ -68,7 +68,7 @@ export function HeroSection() {
           <motion.div variants={fadeUp} className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href="#request"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#c99b42] px-8 py-4 text-sm font-black text-[#07111f] shadow-2xl shadow-black/30 transition hover:-translate-y-1 hover:bg-amber-300"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2275d4] px-8 py-4 text-sm font-black text-[#07111f] shadow-2xl shadow-black/30 transition hover:-translate-y-1 hover:bg-amber-300"
             >
               Request a Valuation <ArrowRight className="h-4 w-4" />
             </a>

@@ -2,8 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Fraunces } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
-import WhatsAppWidget from '@/components/WhatsAppWidget';
-import AskAssistant from '@/components/AskAssistant';
+import DeferredWidgets from '@/components/DeferredWidgets';
 
 const sans = Inter({
   subsets: ['latin'],
@@ -34,11 +33,12 @@ export const metadata: Metadata = {
     title: 'Idoko C Idoko Consulting',
     description: 'Estate Surveyors & Valuers · Property Managers · Facility Managers · Agency',
     type: 'website',
+    images: [{ url: '/media/idoko-hero-desktop.webp', width: 1600, height: 900, alt: 'Idoko C Idoko Consulting — Property Intelligence' }],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#1e3568',
+  themeColor: '#0b57af',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -46,8 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${sans.variable} ${display.variable}`}>
       <body className="min-h-screen bg-white font-sans text-ink-900 antialiased">
         {children}
-        <WhatsAppWidget />
-        <AskAssistant />
+        <DeferredWidgets />
         <Toaster
           position="top-center"
           toastOptions={{

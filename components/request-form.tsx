@@ -89,7 +89,7 @@ export function RequestForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.75 }}
-          className="rounded-[2.5rem] border border-slate-200 bg-[#f7f3ea] p-5 shadow-2xl shadow-slate-900/10 md:p-8"
+          className="rounded-[2.5rem] border border-slate-200 bg-[#f3f9ff] p-5 shadow-2xl shadow-slate-900/10 md:p-8"
         >
           <div className="rounded-[2rem] bg-white p-5 md:p-7">
             <div className="grid gap-5 md:grid-cols-2">

@@ -25,7 +25,7 @@ const stagger = {
 
 export function AboutSection() {
   return (
-    <section id="about" className="overflow-hidden bg-[#f7f3ea] px-6 py-24 lg:px-8">
+    <section id="about" className="overflow-hidden bg-[#f3f9ff] px-6 py-24 lg:px-8">
       <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
         <motion.div
           initial={{ opacity: 0, x: -30 }}

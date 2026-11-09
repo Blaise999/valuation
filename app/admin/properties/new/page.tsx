@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import { ArrowLeft, Upload, X, Save } from 'lucide-react';
 import { Button, Input, Label, Select, Textarea } from '@/components/ui/Form';
 import { createClient } from '@/lib/supabase/client';
+import VideoUploadField from '@/components/admin/VideoUploadField';
 
 function PropertyForm() {
   const router = useRouter();
@@ -16,6 +17,8 @@ function PropertyForm() {
   const [busy, setBusy] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [images, setImages] = useState<string[]>([]);
+  const [videoUrl, setVideoUrl] = useState('');
+  const [uploadingVideo, setUploadingVideo] = useState(false);
   const [form, setForm] = useState({
     title: '', slug: '', description: '', price: '',
     price_period: 'sale', location: '', city: '', state: '',
@@ -47,6 +50,7 @@ function PropertyForm() {
           featured: data.featured || false,
         });
         setImages(data.images || []);
+        setVideoUrl(data.video_url || '');
       }
     })();
   }, [editingId]);
@@ -64,7 +68,7 @@ function PropertyForm() {
         const { data } = supabase.storage.from('properties').getPublicUrl(path);
         if (data?.publicUrl) newUrls.push(data.publicUrl);
       }
-      setImages([...images, ...newUrls]);
+      setImages((prev) => [...prev, ...newUrls]);
       toast.success('Images uploaded');
     } catch (err: any) {
       toast.error(err?.message || 'Upload failed');
@@ -75,6 +79,7 @@ function PropertyForm() {
 
   async function save() {
     if (!form.title.trim()) return toast.error('Title is required');
+    if (uploading || uploadingVideo) return toast.error('Finish uploading media before saving.');
     setBusy(true);
     try {
       const slug = (form.slug || form.title).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
@@ -94,6 +99,7 @@ function PropertyForm() {
         area_sqm: form.area_sqm ? Number(form.area_sqm) : null,
         features: form.features.split(',').map((s) => s.trim()).filter(Boolean),
         images,
+        video_url: videoUrl || null,
         status: form.status,
         featured: form.featured,
       };
@@ -118,7 +124,7 @@ function PropertyForm() {
 
       <div className="flex items-center justify-between">
         <h1 className="font-display text-3xl font-bold text-ink-900">{editingId ? 'Edit Property' : 'New Property'}</h1>
-        <Button onClick={save} disabled={busy} size="md"><Save size={14} /> {busy ? 'Saving…' : 'Save'}</Button>
+        <Button onClick={save} disabled={busy || uploading || uploadingVideo} size="md"><Save size={14} /> {busy ? 'Saving…' : 'Save'}</Button>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
@@ -190,6 +196,12 @@ function PropertyForm() {
                 ))}
               </div>
             )}
+          </div>
+
+          <div className="rounded-2xl border border-ink-100 bg-white p-6">
+            <h2 className="mb-2 font-display text-base font-bold text-ink-900">Property video walkthrough</h2>
+            <p className="mb-4 text-xs leading-relaxed text-ink-500">Upload a video specifically for this property. Visitors can play it on the Properties page.</p>
+            <VideoUploadField bucket="properties" folder="videos" label="Choose an MP4 or WebM walkthrough" value={videoUrl} onChange={setVideoUrl} onUploadingChange={setUploadingVideo} />
           </div>
 
           <div className="rounded-2xl border border-ink-100 bg-white p-6">

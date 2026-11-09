@@ -94,6 +94,7 @@ export interface PropertyRow {
   area_sqm: number | null;
   features: string[];
   images: string[];
+  video_url: string | null;
   status: 'available' | 'sold' | 'rented' | 'pending';
   featured: boolean;
   created_at: string;
