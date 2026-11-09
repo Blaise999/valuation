@@ -13,6 +13,7 @@ export default function VideoLightbox({
   label?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const [playbackError, setPlaybackError] = useState(false);
   const [ready, setReady] = useState(false);
   useEffect(() => setReady(true), []);
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function VideoLightbox({
   }, [open]);
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className={`inline-flex items-center gap-2 rounded-full border border-white/20 bg-brand-950/90 px-4 py-2.5 text-xs font-bold text-white shadow-lg backdrop-blur-sm transition hover:scale-[1.02] hover:bg-brand-800 ${className}`}>
+      <button type="button" onClick={() => { setPlaybackError(false); setOpen(true); }} className={`inline-flex items-center gap-2 rounded-full border border-white/20 bg-brand-950/90 px-4 py-2.5 text-xs font-bold text-white shadow-lg backdrop-blur-sm transition hover:scale-[1.02] hover:bg-brand-800 ${className}`}>
         <Play size={13} fill="currentColor" /> {label}
       </button>
       {ready && open && createPortal(
@@ -33,7 +34,14 @@ export default function VideoLightbox({
           <div className="w-full max-w-5xl">
             <div className="mb-4 flex items-center justify-between gap-4"><p className="truncate font-display text-lg font-bold">{title}</p><button type="button" onClick={() => setOpen(false)} aria-label="Close video" className="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-white/20"><X size={21} /></button></div>
             {/* Media is mounted only after the visitor clicks play; never fetched on page load. */}
-            <video src={url} controls autoPlay playsInline preload="none" className="aspect-video w-full rounded-2xl bg-black shadow-2xl" />
+            {playbackError ? (
+              <div className="flex aspect-video flex-col items-center justify-center gap-3 rounded-2xl bg-black p-6 text-center text-sm">
+                <p>Your browser cannot play this video's format.</p>
+                <a href={url} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-4 py-2 font-semibold text-blue-900">Open original video</a>
+              </div>
+            ) : (
+              <video src={url} controls autoPlay playsInline preload="none" onError={() => setPlaybackError(true)} className="aspect-video w-full rounded-2xl bg-black shadow-2xl" />
+            )}
           </div>
         </div>, document.body,
       )}

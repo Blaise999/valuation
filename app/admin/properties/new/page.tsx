@@ -201,7 +201,7 @@ function PropertyForm() {
           <div className="rounded-2xl border border-ink-100 bg-white p-6">
             <h2 className="mb-2 font-display text-base font-bold text-ink-900">Property video walkthrough</h2>
             <p className="mb-4 text-xs leading-relaxed text-ink-500">Upload a video specifically for this property. Visitors can play it on the Properties page.</p>
-            <VideoUploadField bucket="properties" folder="videos" label="Choose an MP4 or WebM walkthrough" value={videoUrl} onChange={setVideoUrl} onUploadingChange={setUploadingVideo} />
+            <VideoUploadField bucket="properties" folder="videos" label="Choose a property walkthrough video" value={videoUrl} onChange={setVideoUrl} onUploadingChange={setUploadingVideo} />
           </div>
 
           <div className="rounded-2xl border border-ink-100 bg-white p-6">
